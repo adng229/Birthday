@@ -173,30 +173,33 @@ $('document').ready(function(){
 		var i;
 
 		function msgLoop (i) {
-			$("p:nth-child("+i+")").fadeOut('slow').delay(800).promise().done(function(){
-			i=i+1;
-			$("p:nth-child("+i+")").fadeIn('slow').delay(1000);
-			if(i==50){
-				$("p:nth-child(49)").fadeOut('slow').promise().done(function () {
-					$('.cake').fadeIn('fast');
-				});
-				
-			}
-			else{
-				msgLoop(i);
-			}			
+    $("p:nth-child("+i+")").fadeOut('slow').delay(800).promise().done(function(){
+    i=i+1;
+    $("p:nth-child("+i+")").fadeIn('slow').delay(1000);
+    if(i==50){
+        $("p:nth-child(49)").fadeOut('slow').promise().done(function () {
+            $('.cake').fadeIn('fast');
+        });
+        
+    }
+    else if(i==12){ // This targets the last paragraph "we can make more fun memories!!"
+        setTimeout(function() {
+            $('#more_decorations').fadeIn('slow');
+        }, 3000); // Show button 3 seconds after last message appears
+        msgLoop(i);
+    }
+    else{
+        msgLoop(i);
+    }			
 
-		});
-			// body...
-		}
+    });
+    // body...
+}
 		
 		msgLoop(0);
 		
 	});
-	// Add this after the last message paragraph is displayed
-	setTimeout(function () {
-		document.getElementById('more_decorations').style.display = 'inline-block';
-	}, 1000); // Adjust timing as needed
+
 
 	// Add these event listeners
 	document.getElementById('more_decorations').addEventListener('click', function () {
