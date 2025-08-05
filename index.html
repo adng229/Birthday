@@ -58,10 +58,8 @@
     </div>
 
     <img src="Balloon-Border.png" width="100%" class="balloon-border">
- 
 
 	<div class="container">
-		
 		<div class="row">
 			<div class="col-md-2 col-xs-2 bulb-holder">
 				<div class="bulb" id="bulb_yellow"></div>
@@ -132,22 +130,51 @@
 					<!-- <button class="btn btn-primary" id="cake_cut">Lrt's Cut the Cake</button> -->
 				</div>
 			</div>
-			<!-- <div class="col-md-2">
-			</div>
-			<div class="col-md-2">
-			</div>
-			<div class="col-md-2">
-			</div>
-			<div class="col-md-2">
-			</div>
-			<div class="col-md-2">
-			</div> -->
 		</div>
-
-
 	</div>
-</body>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 <script src="effect.js"></script>
+
+<script>
+// Function to add random decorations
+function addRandomDecorations() {
+    // Change this to your actual image filename
+    const imagePath = 'duck.png'; // Replace with your actual image filename
+    
+    for (let i = 0; i < 5; i++) {
+        // Create new image element
+        const img = document.createElement('img');
+        img.src = imagePath;
+        img.className = 'random-decoration';
+        
+        // Generate random position
+        const randomX = Math.random() * (window.innerWidth - 80); // 80 is image width
+        const randomY = Math.random() * (window.innerHeight - 80); // 80 is image height
+        
+        // Set position
+        img.style.left = randomX + 'px';
+        img.style.top = randomY + 'px';
+        
+        // Add slight delay for each image
+        img.style.animationDelay = (i * 0.2) + 's';
+        
+        // Add to body
+        document.body.appendChild(img);
+    }
+}
+
+// Add event listener for the "More decorations" button
+document.addEventListener('DOMContentLoaded', function() {
+    const moreDecorationsBtn = document.getElementById('balloons_flying');
+    if (moreDecorationsBtn) {
+        moreDecorationsBtn.addEventListener('click', function() {
+            addRandomDecorations();
+        });
+    }
+});
+</script>
+
+</body>
 </html>
