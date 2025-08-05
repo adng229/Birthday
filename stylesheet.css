@@ -1113,6 +1113,7 @@ audio {
 	background-image: url('b6.png');
 }
 #b7,#b77{
+	transform: scale(2);
 	background-image: url('b7.png');
 }
 .balloons-rotate-behaviour-one {
