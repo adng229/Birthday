@@ -1638,6 +1638,35 @@ o @keyframes bannar_come {
 		transform: translateY(-15px) rotate(-5deg);
 	}
 
+		.huge-duck {
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 80vw;
+			height: 80vh;
+			z-index: 9999;
+			opacity: 0;
+			animation: hugeDuckAppear 2s ease-out forwards;
+			object-fit: contain;
+		}
+	
+		@keyframes hugeDuckAppear {
+			0% {
+				opacity: 0;
+				transform: translate(-50%, -50%) scale(0) rotate(0deg);
+			}
+	
+			50% {
+				opacity: 1;
+				transform: translate(-50%, -50%) scale(1.2) rotate(180deg);
+			}
+	
+			100% {
+				opacity: 1;
+				transform: translate(-50%, -50%) scale(1) rotate(360deg);
+			}
+		}
 
 	/*controlling tablet width*/
 	/*@media only screen and (max-width: 720px){

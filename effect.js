@@ -193,6 +193,25 @@ $('document').ready(function(){
 		msgLoop(0);
 		
 	});
+	// Add this after the last message paragraph is displayed
+	setTimeout(function () {
+		document.getElementById('more_decorations').style.display = 'inline-block';
+	}, 1000); // Adjust timing as needed
+
+	// Add these event listeners
+	document.getElementById('more_decorations').addEventListener('click', function () {
+		addRandomDecorations();
+		this.style.display = 'none';
+		document.getElementById('more_more_more').style.display = 'inline-block';
+	});
+
+	document.getElementById('more_more_more').addEventListener('click', function () {
+		const hugeDuck = document.createElement('img');
+		hugeDuck.src = 'duck.png';
+		hugeDuck.className = 'huge-duck';
+		document.body.appendChild(hugeDuck);
+		this.style.display = 'none';
+	});
 });
 
 
